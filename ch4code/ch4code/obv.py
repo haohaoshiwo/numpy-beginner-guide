@@ -2,16 +2,19 @@ import numpy as np
 
 c, v=np.loadtxt('BHP.csv', delimiter=',', usecols=(6, 7), unpack=True)
 
+print(c)
 change = np.diff(c)
-print "Change", change
+print ("Change", change)
 
 signs = np.sign(change)
-print "Signs", signs
+print ("Signs", signs)
 
 pieces = np.piecewise(change, [change < 0, change > 0], [-1, 1])
-print "Pieces", pieces
+print("Pieces", pieces)
 
-print "Arrays equal?", np.array_equal(signs, pieces)
+print("Arrays equal?", np.array_equal(signs, pieces))
 
-print "On balance volume", v[1:] * signs
+print("On balance volume", v[1:] * signs)
 
+obc = np.zeros(len(c))
+print(obc)
